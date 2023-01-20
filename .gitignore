@@ -1,0 +1,21 @@
+
+# Dependency directories
+node_modules/
+jspm_packages/
+coverage/
+
+# Optional npm cache directory
+.npm
+
+# dotenv environment variables file, allow sample files to be checked-in
+.env
+.env.*
+env.*
+!.env.dev
+!.env.test
+
+# Code Editor Files
+.idea
+
+# Build dirs
+.build
