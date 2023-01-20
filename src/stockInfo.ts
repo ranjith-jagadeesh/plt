@@ -5,7 +5,8 @@ import { Request } from "express";
 
 export const getStockInfoRoute = (req: Request): ResponseBody => {
   const sku = req.query.sku;
-  if (!sku) throw new Error("Invalid Request, Enter SKU to get stock information");
+  if (!sku)
+    throw new Error("Invalid Request, Enter SKU to get stock information");
 
   const result = getStockInfo(String(sku));
 
@@ -23,9 +24,12 @@ export const getStockInfo = (sku: string): StockDataResult => {
   /**
    * If SKU is not found in stock.json file, initialize empty stock
    */
-  const stockData: StockData = stock.find(
-    (element) => element.sku == String(sku)
-  ) ?? { sku: String(sku), stock: 0 };
+  const stockData: StockData = {
+    ...(stock.find((element) => element.sku == String(sku)) ?? { //Deep copy
+      sku: String(sku),
+      stock: 0,
+    }),
+  };
 
   /**
    * Calculate stock against transactios
