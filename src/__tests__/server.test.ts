@@ -14,6 +14,15 @@ describe('Express Server', () => {
         expect(body.qty).toEqual(706)
     })
 
+    it('Get Invalid Sku', async () => {
+        const sku = "INVALID";
+        const res = await request(app).get(`/?sku=${sku}`);
+
+        expect(res.statusCode).toEqual(400);
+        const body = JSON.parse(res.text);
+        expect(body.message).toEqual("Invalid Request, Enter a valid SKU");
+    })
+
     it('Send request without query parameters', async () => {
         const res = await request(app).get(`/`);
 

@@ -31,13 +31,19 @@ export const getStockInfo = (sku: string): StockDataResult => {
     }),
   };
 
+  let istxnFound = false;
   /**
    * Calculate stock against transactios
    */
   transactions.forEach((element) => {
-    if (element.sku == sku)
+    if (element.sku == sku) {
+      istxnFound = true;
       stockData.stock += element.type == "order" ? -element.qty : element.qty;
+    }
   });
+
+  if (!istxnFound && !stockData.stock)
+    throw new Error("Invalid Request, Enter a valid SKU");
 
   return <StockDataResult>{ sku: stockData.sku, qty: stockData.stock };
 };
