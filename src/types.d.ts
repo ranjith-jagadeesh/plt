@@ -1,4 +1,14 @@
+export interface StockData {
+  sku: string;
+  stock: number;
+}
+
+export interface StockDataResult{
+  sku: string;
+  qty: number
+}
+
 export interface ResponseBody {
-  res: any;
+  res: StockDataResult;
   code: number;
 }

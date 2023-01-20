@@ -49,7 +49,7 @@ export class ExpressServer {
           tokens.res(req, res, "content-length"),
           `${tokens["response-time"](req, res)}ms`,
           reqBody(req, res),
-          process.env.PD_DEPLOY_ID || "-",
+          process.env.DEPLOY_ID || "-",
           sourceIp(req),
         ].join(" ");
       })
