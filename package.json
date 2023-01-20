@@ -9,7 +9,7 @@
     "docker-up": "docker-compose build; docker-compose up"
   },
   "dependencies": {
-    "aws-cdk-lib": "^2.60.0",
+    "aws-cdk-lib": "^2.61.0",
     "aws-serverless-express": "^3.4.0",
     "cdk": "^2.60.0",
     "constructs": "^10.1.223",
