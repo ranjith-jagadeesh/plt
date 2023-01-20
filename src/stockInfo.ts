@@ -5,13 +5,13 @@ import { Request } from "express";
 
 export const getStockInfoRoute = (req: Request): ResponseBody => {
   const sku = req.query.sku;
-  if (!sku) throw new Error("Enter SKU to get stock information");
+  if (!sku) throw new Error("Invalid Request, Enter SKU to get stock information");
 
   const result = getStockInfo(String(sku));
 
   const response: ResponseBody = {
     res: result,
-    code: 201,
+    code: 200,
   };
   return response;
 };

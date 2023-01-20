@@ -33,9 +33,9 @@ const handleRoute = async (
     const error = err.message;
     try {
       const errMessage = JSON.parse(error);
-      res.status(400).send(errMessage);
+      res.status(400).send({ message: errMessage });
     } catch (err) {
-      res.status(400).send(error);
+      res.status(400).send({ message: error });
     }
   }
 };
