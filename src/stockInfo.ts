@@ -38,10 +38,16 @@ export const getStockInfo = (sku: string): StockDataResult => {
   transactions.forEach((element) => {
     if (element.sku == sku) {
       istxnFound = true;
+      /**
+       * If type is order subtract the quantity, else add
+       */
       stockData.stock += element.type == "order" ? -element.qty : element.qty;
     }
   });
 
+  /**
+   * If SKU is not present in both stock and transaction, throw a error
+   */
   if (!istxnFound && !stockData.stock)
     throw new Error("Invalid Request, Enter a valid SKU");
 
