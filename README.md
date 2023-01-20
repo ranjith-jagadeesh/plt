@@ -1,8 +1,6 @@
 # PLT Project
 
-PLT Sample Project
-
-The PLT project to get Stock and Transaction Information.
+The NodeJs server to get Stock and Transaction Information.
 
 ## Built With
 
