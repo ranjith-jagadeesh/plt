@@ -39,6 +39,11 @@ To build and run docker image
 yarn docker-up
 ```
 
+Once the project is up and running, use the below endpoint to verify
+```
+http://localhost:3000/?sku=SXV420098/71/68
+```
+
 ### To Run Tests
 Jest and Supertest framework to test and verify requests
 ```
